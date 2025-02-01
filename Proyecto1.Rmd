@@ -2,7 +2,7 @@
 title: "Proyecto1"
 author:
 - "Juan Luis Solórzano (carnet: 201598)"
-- "Mica (carnet: XXXXXXX)"
+- - "Micaela Yataz (carnet: 18960)"
 date: "2025-01-20"
 output: pdf_document
 ---
