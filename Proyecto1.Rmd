@@ -261,6 +261,7 @@ ggplot(pelisMes, aes(x = factor(mes), y = promedio)) +
 ```
 
 ```{r} 
+```{r, echo=FALSE} 
 mes <- as.numeric(format(pelis_rent$releaseDate, "%m"))
 
 pelis_rent$mes <- data.frame(mes = mes)$mes
@@ -271,6 +272,7 @@ pelisMesR <- pelis_rent %>%
 
 
 head(pelis_rent)
+#head(pelis_rent)
 
 ggplot(pelisMesR, aes(x = factor(mes), y = promedio)) +
   geom_bar(stat = "identity", fill = "steelblue") +
@@ -284,6 +286,7 @@ ggplot(pelisMesR, aes(x = factor(mes), y = promedio)) +
 
 ### 4.14. (7 puntos) ¿Cómo se correlacionan las calificaciones con el éxito comercial?
 ```{r}
+```{r, echo=FALSE}
 df <- pelis[,c("revenue","voteAvg")]
 
 ggpairs(df)
@@ -298,6 +301,7 @@ ggpairs(df)
 ### 4.16. (4 puntos) ¿La popularidad del elenco está directamente correlacionada con el éxito de taquilla?
 
 ```{r}
+```{r, echo=FALSE}
 pelis <- pelis %>%
   mutate(
     avgPopularity = sapply(strsplit(actorsPopularity, "\\|"), 
