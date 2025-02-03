@@ -121,17 +121,17 @@ head(pelis_ord, 10)
 ### 4.3. (3 puntos) ¿Cuál es la película que más votos tuvo?
 ```{r ,echo=FALSE}
 pelis_ord <- pelis[order(-pelis$voteCount),]
+print(pelis_ord$originalTitle[1] )
 
-```
-La película que más votos tuvo fue `r pelis_ord$originalTitle[1] `.
+``` 
 
 ### 4.4. (3 puntos) ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios?
 
 ```{r ,echo=FALSE}
 pelis_ord <- pelis[order(pelis$voteCount),]
-
+print(pelis_ord$originalTitle[1])
 ```
-La peor película fue `r pelis_ord$originalTitle[1] `.
+
 
 
 ### 4.5. (8 puntos) ¿Cuántas películas se hicieron en cada año? ¿En qué año se hicieron más películas? Haga un gráfico de barras.
