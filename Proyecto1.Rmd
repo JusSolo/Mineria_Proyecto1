@@ -266,6 +266,12 @@ ggpairs(df)
 
 
 ### 4.12. (5 puntos) ¿Se asocian ciertos meses de lanzamiento con mejores ingresos?
+```{r echo=FALSE, message=TRUE}
+
+pelis_fecha<-as.Date(pelis$releaseDate, "%m")
+pelis_ingresospelis <-as.numeric(gsub(",", "", pelis$revenue))
+ingreso_por_mespelis <-ag
+```
 
 
 ### 4.13. (6 puntos) ¿En qué meses se han visto los lanzamientos con mejores ingresos? ¿Cuántas películas, en promedio, se han lanzado por mes?
@@ -321,12 +327,6 @@ df <- pelis[,c("revenue","voteAvg")]
 
 ggpairs(df)
 ```
-
-
-### 4.15. (5 puntos) ¿Qué estrategias de marketing, como videos promocionales o páginas oficiales, generan mejores resultados?
-
-# Mica esto no se me ocurre que hacer
-
 
 ### 4.16. (4 puntos) ¿La popularidad del elenco está directamente correlacionada con el éxito de taquilla?
 
