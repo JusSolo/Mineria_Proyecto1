@@ -154,9 +154,40 @@ El año que se rodaron más películas fue el `r conteo_años$año[1]`
 
 
 ### 4.6. (9 puntos) ¿Cuál es el género principal de las 20 películas más recientes? ¿Cuál es el género principal que predomina en el conjunto de datos? Represéntelo usando un gráfico. ¿A qué género principal pertenecen las películas más largas?
+```{r, echo=FALSE}
+pelis$releaseDate<-as.Date(pelis$releaseDate, format="%y-%m-%d")
+pelis$genres<-sapply(strsplit(pelis$genres, ","),"[", 1)
+#20 generos
+pelis_rec<- pelis[order(fecha, decreasing = TRUE), ][1:20,]
 
+print(table(pelis_rec$genres))
+```
+Son los géneros de las 20 películas mas recientes.
 
+```{r, echo=FALSE}
+pelis$releaseDate<-as.Date(pelis$releaseDate, format="%y-%m-%d")
+pelis$genres<-sapply(strsplit(pelis$genres, ","),"[", 1)
+tab_gen<-table(pelis$genres)
+gen_pre<-names(tab_gen)[which.max(tab_gen)]
+cat(gen_pre)
+```
+Es el género dominante.
+```{r, echo=FALSE}
+pelis$releaseDate<-as.Date(pelis$releaseDate, format="%y-%m-%d")
+pelis$genres<-sapply(strsplit(pelis$genres, ","),"[", 1)
+tab_gen<-table(pelis$genres)
+gen_pre<-names(tab_gen)[which.max(tab_gen)]
+barplot(tab_gen, main=) 
+```
+La películas más larga es:
+```{r, echo=FALSE}
+pelis$releaseDate<-as.Date(pelis$releaseDate, format="%y-%m-%d")
+pelis$genres<-sapply(strsplit(pelis$genres, ","),"[", 1)
+tab_gen<-table(pelis$genres)
+pelis_larga<-pelis[order(pelis$runtime, decreasing = TRUE), ]
+print(pelis_larga[, c("originalLanguage", "genres", "runtime")][2:2,])
 
+```
 
 ### 4.7. (8 puntos) ¿Las películas de qué género principal obtuvieron mayores ganancias?
 Vamos a tomar a las películas por encima del percentil 97 $P_{97}$ como las que obtuvieron mayores ganancias\\
@@ -260,8 +291,7 @@ ggplot(pelisMes, aes(x = factor(mes), y = promedio)) +
 
 ```
 
-```{r} 
-```{r, echo=FALSE} 
+```{r} echo=FALSE} 
 mes <- as.numeric(format(pelis_rent$releaseDate, "%m"))
 
 pelis_rent$mes <- data.frame(mes = mes)$mes
